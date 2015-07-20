@@ -1,0 +1,96 @@
+%%% Custom Variables %%%
+\newcommand{\dif}[1]{\, \, \mathrm{d}\,#1}  %differential operator
+\newcommand{\pd}[2]{\frac{\partial\, #1}{\partial #2}}  %Partial differential equation
+\newcommand{\od}[2]{\frac{\mathrm{d}\, #1}{\mathrm{d} #2}}  %Ordinary differential equation
+\newcommand{\bv}[1]{\textbf{#1}}  %Bold vector
+\newcommand{\lag}{\mathcal{L}}  %Lagrangian operator
+\newcommand{\ham}{\mathcal{H}}  %Hamiltonian operator
+\newcommand{\ai}{\operatorname{ai}}  %Define custom operators using \operatorname for correct letter formatting (like sine or cosine)
+
+
+
+
+
+
+
+
+
+
+
+%Packages
+\usepackage{amsmath, amssymb, amsthm, amsfonts}  %AMS packages
+\usepackage[paperwidth=8.5in, paperheight=11in, margin=1in]{geometry}  %Controls the size and margins of the page
+\usepackage[dvipsnames*,svgnames]{xcolor}  %Controls the background color of the example/proof box
+\usepackage[utf8]{inputenc}  %Allows for special accented characters
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{nameref} \newcommand*{\currentname}{\@currentlabelname}  %Provides the header reference for the section name
+\usepackage[linewidth= .75pt, linecolor=gray, leftmargin=5pt, rightmargin=5pt, innerleftmargin=20pt, innerrightmargin=20, innertopmargin=20pt, innerbottommargin=20pt, splittopskip=30pt, frametitleaboveskip=20pt]{mdframed}  %Dimensions for the example/proof box using the mdframed package
+\usepackage{adjustbox}
+\usepackage{fancyhdr}  %Controls header and footer content via lhead, chead, rhead, lfoot, cfoot and rfoot
+\pagestyle{fancy}  %Declares the header style from fancyhdr
+
+
+%Color Definitions
+\definecolor{examplecolor}{HTML}{F6E3CE}  %Example box background color. The color can be defined via HTML color codes.
+\definecolor{proofcolor}{HTML}{E0F2F7}  %Proof box background color. The color can be defined via HTML color codes.
+
+
+%Fancy Header Settings
+\lhead{\textbf{\thesection\, - \lecturetitle}\, - \currentname}
+\chead{}
+\rhead{\lecturedate}
+\lfoot{}
+\cfoot{\coursenumber\, - \coursename}
+\rfoot{\thepage}
+
+
+%Title Block
+\newcommand{\titleblock}{
+\noindent
+\begin{center}
+  \framebox[\textwidth]{
+    \vbox{\vspace{4mm}
+      \hbox to 0.95\textwidth { {\bf \Large \hfill \coursenumber: \coursename \hfill} }
+      \vspace{2mm}      
+      \hbox to 0.95\textwidth { {\bf \Large \hfill Lecture \lecturenumber: \lecturetitle  \hfill} }
+      \vspace{2mm}      
+      \hbox to 0.95\textwidth { {\Large \hfill \lecturedate  \hfill} }
+      \vspace{6mm}
+      \hbox to 0.95\textwidth { {\hfill Lecturer: \lecturer \hfill} }
+      \hbox to 0.95\textwidth { {\hfill Scribe: \scribe\hfill} }
+      \vspace{4mm}}
+  }
+\end{center}
+}
+%Geometry and Font Settings
+\setlength{\headheight}{14pt}
+%\renewcommand*{\familydefault}{\sfdefault}  %Uses a sans-serif font
+
+% AMS theorem definitions
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\renewcommand{\qed}{\hfill $\framebox(6,6){}$}
+
+%Section, Equation, Figure, Table, etc numbering schemes
+\renewcommand{\thesection}{\lecturenumber.\arabic{section}}
+\renewcommand{\thesubsection}{\lecturenumber.\arabic{section}.\arabic{subsection}}
+\renewcommand{\thefigure}{\lecturenumber.\arabic{figure}}
+\renewcommand{\thetable}{\lecturenumber.\arabic{table}}
+\renewcommand{\thefootnote}{\lecturenumber.\arabic{footnote}}
+\renewcommand{\theequation}{\lecturenumber.\arabic{equation}}
+
+
+%Custom example/proof containers with background colors
+\newsavebox{\selvestebox}
+
+\renewenvironment{proof}[1]
+	{\begin{mdframed}[backgroundcolor=proofcolor,frametitle=\textbf{Proof: }#1]}%
+  {\end{mdframed}}
+
+
+\newenvironment{example}[1]
+	{\begin{mdframed}[backgroundcolor=examplecolor,frametitle=\textbf{Example: }#1]}%
+ {\end{mdframed}}
