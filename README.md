@@ -21,7 +21,7 @@ The Course notes template relies on the notes.sty file. This needs to be placed 
 
 as such, you will not need to load these packages separately. Additionally, notes.sty includes a *proof* and *example* environment which will provide you a boxed/colored environment to separate your proofs/examples from your main content. 
 
-![Example Environment](/exxample_environment.png)
+![Example Environment](/Course Notes/example_environment.png)
 
 ## Homework Template
 
